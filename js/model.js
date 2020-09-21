@@ -25,9 +25,9 @@ $(function() {
 	var columns;
 	var itemHtml = '<div class="column is-one-quarter is-centered">' +
 						'<div class="card">' +
-							'<div class="card-header-icon">' +
+							'<a class="card-header-icon" href="{game.gpUrl}" target="_blank">' +
 								'<img class="image is-128x128" src="{game.icon}" alt="{game.name}">' +
-							'</div>' +
+							'</a>' +
 							'<div class="card-content has-text-centered" style="padding: 0;">' +
 								'<span class="title is-6">{game.name}</span><br/>' +
                                 '<span class="subtitle is-7">{game.subtitle}</span>' +
