@@ -3,6 +3,15 @@ $(function() {
 	var zh = lang.indexOf('zh') >= 0;
 	var country = zh ? 'cn' : 'us';
 	var games = [
+        {
+            name_zh: '小蓝记账',
+            subtitle_zh: '简洁的记账App',
+			name_en: 'Keep Accounts Xiaolan',
+            subtitle_en: 'A simple keep accounts app.',
+			icon: 'images/icon_keepaccounts.png',
+			//iosUrl: 'https://itunes.apple.com/' + country + '/app/id1436709665?mt=8',
+			gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.keepaccounts'
+        },
 		{
 			name_zh: '自习助手',
             subtitle_zh: '计划清单与时间管理',
@@ -42,9 +51,9 @@ $(function() {
 		}
 		$(itemHtml.replace(/{game.name}/g, zh ? game.name_zh : game.name_en)
                 .replace(/{game.subtitle}/g, zh ? game.subtitle_zh : game.subtitle_en)
-				.replace(/{game.icon}/, game.icon)
-				.replace(/{game.iosUrl}/, game.iosUrl)
-				.replace(/{game.gpUrl}/, game.gpUrl)).appendTo(columns);
+				.replace(/{game.icon}/g, game.icon)
+				.replace(/{game.iosUrl}/g, game.iosUrl)
+				.replace(/{game.gpUrl}/g, game.gpUrl)).appendTo(columns);
 	});
 });
 
