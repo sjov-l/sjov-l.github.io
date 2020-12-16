@@ -5,10 +5,10 @@ $(function() {
 	var isIOS = navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
 	var games = [
     {
-      name_zh: '小蓝记账',
-      subtitle_zh: '简洁的记账App',
-      name_en: 'Bookkeeping XLan',
-      subtitle_en: 'A simple bookkeeping app.',
+      name_zh: '记点儿',
+      subtitle_zh: '简单记账，轻松存钱',
+      name_en: 'Bookkeeping Er.',
+      subtitle_en: 'Save money easily',
       icon: 'images/icon_keepaccounts.png',
       iosUrl: 'https://itunes.apple.com/' + country + '/app/id1542739293?mt=8',
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.keepaccounts'
