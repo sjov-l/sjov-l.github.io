@@ -2,8 +2,26 @@ $(function() {
 	var lang = (navigator.language || navigator.userLanguage || navigator.browserLanguage).toLowerCase();
 	var zh = lang.indexOf('zh') >= 0;
 	var country = zh ? 'cn' : 'us';
-	var isIOS = navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
+	var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
 	var games = [
+    {
+      name_zh: 'Poker Master',
+      subtitle_zh: 'Become a master. Get the win!',
+      name_en: 'Poker Master',
+      subtitle_en: 'Become a master. Get the win!',
+      icon: 'images/icon_poker-master.png',
+      iosUrl: null,
+      gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.poker.card.match3'
+    },
+    {
+      name_zh: '一念之间',
+      subtitle_zh: '我的日记: 灵感就在一念之间',
+      name_en: 'Momento',
+      subtitle_en: 'A diary app: The inspiration arises in a fleeting moment.',
+      icon: 'images/icon_momento.png',
+      iosUrl: null,
+      gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.diary.journal.momento'
+    },
     {
       name_zh: '记点儿',
       subtitle_zh: '简单记账，轻松存钱',
@@ -42,7 +60,7 @@ $(function() {
 								'<span class="title is-6">{game.name}</span><br/>' +
                 '<span class="subtitle is-7">{game.subtitle}</span>' +
 							'</div>' +
-							'<a class="card-footer-item" href="{game.iosUrl}" target="_blank"><img src="images/download_ios.png"></a>' +
+							//'<a class="card-footer-item" href="{game.iosUrl}" target="_blank"><img src="images/download_ios.png"></a>' +
 							'<a class="card-footer-item" href="{game.gpUrl}" target="_blank"><img src="images/download_android.png"></a>' +
 						'</div>' +
 					'</div>';
