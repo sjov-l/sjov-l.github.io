@@ -5,9 +5,9 @@ $(function() {
 	var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
 	var games = [
     {
-      name_zh: 'Poker Master',
+      name_zh: 'Poker Match',
       subtitle_zh: 'Become a master. Get the win!',
-      name_en: 'Poker Master',
+      name_en: 'Poker Match',
       subtitle_en: 'Become a master. Get the win!',
       icon: 'images/icon_poker-master.png',
       iosUrl: null,
