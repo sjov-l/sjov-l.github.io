@@ -5,6 +5,15 @@ $(function() {
 	var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
 	var games = [
     {
+      name_zh: '方块消消乐',
+      subtitle_zh: '一个纯粹的三消游戏',
+      name_en: 'Color Block Crush',
+      subtitle_en: 'A pure match-3 game',
+      icon: 'images/icon_block-match3.png',
+      iosUrl: null,
+      gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.block.match3'
+    },
+    {
       name_zh: 'Poker Match',
       subtitle_zh: 'Become a master. Get the win!',
       name_en: 'Poker Match',
