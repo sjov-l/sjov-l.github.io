@@ -5,6 +5,15 @@ $(function() {
 	var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
 	var games = [
     {
+      name_zh: 'Onet-Cute Monster Connect',
+      subtitle_zh: 'A different onet puzzle game',
+      name_en: 'Onet-Cute Monster Connect',
+      subtitle_en: 'A different onet puzzle game',
+      icon: 'images/icon_onet.png',
+      iosUrl: null,
+      gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.game.free.onet.match.puzzle'
+    },
+    {
       name_zh: '方块消消乐',
       subtitle_zh: '一个纯粹的三消游戏',
       name_en: 'Color Block Crush',
