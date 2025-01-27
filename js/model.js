@@ -5,6 +5,15 @@ $(function() {
 	var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
 	var games = [
     {
+      name_zh: 'Weapon Master',
+      subtitle_zh: 'A roguelike bag-battle game',
+      name_en: 'Weapon Master',
+      subtitle_en: 'A roguelike bag-battle game',
+      icon: 'images/icon_weapon-master.png',
+      iosUrl: null,
+      gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.game.free.roguelike.bagfight.weaponmaster'
+    },
+    {
       name_zh: 'Onet-Cute Monster Connect',
       subtitle_zh: 'A different onet puzzle game',
       name_en: 'Onet-Cute Monster Connect',
