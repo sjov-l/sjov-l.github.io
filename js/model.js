@@ -79,7 +79,7 @@ $(function() {
   ];
 
 	if (zh) {
-		$('title').html('Blue Dog - 免费苹果/安卓手机游戏');
+		$('title').html('Mud Code Studio - 免费苹果/安卓手机游戏');
 		$('#footer_home').html('首页');
 		$('#footer_privacy').html('隐私政策');//.attr('href', "privacy_zh.html");
 		$('#footer_contact').html('联系我们');
