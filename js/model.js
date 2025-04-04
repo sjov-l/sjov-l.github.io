@@ -15,9 +15,9 @@ $(function() {
     },
     {
       name_zh: '啾咪！飛飛大冒險',
-      subtitle_zh: '實時對戰全球玩家 七日登錄送造型 每日任務賺代幣 連勝競技排行榜',
+      subtitle_zh: '七日登錄送造型 每日任務賺代幣 連勝競技排行榜',
       name_en: 'Flappy Wings Saga',
-      subtitle_en: 'Real-Time PvP 7 Unique Birds Daily Tokens Win Streak Leaderboard',
+      subtitle_en: '7 Unique Birds, Daily Tokens, Win Streak Leaderboard',
       icon: 'images/icon_flappywingssaga.png',
       iosUrl: null,
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.game.flappywings'
