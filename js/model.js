@@ -5,6 +5,15 @@ $(function() {
 	var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
 	var games = [
     {
+      name_zh: 'EchoLit',
+      subtitle_zh: 'Turn books, PDFs, or images into natural-sounding speech with AI!',
+      name_en: 'EchoLit',
+      subtitle_en: 'Turn books, PDFs, or images into natural-sounding speech with AI!',
+      icon: 'images/icon_echolit.png',
+      iosUrl: null,
+      gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.app.ai.book.listen.read.echolit'
+    },
+    {
       name_zh: '逆命牌局',
       subtitle_zh: '用智慧擊敗皇家，贏得榮耀！',
       name_en: 'Rebel Deck',
