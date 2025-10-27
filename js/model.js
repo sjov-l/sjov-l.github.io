@@ -5,6 +5,15 @@ $(function() {
 	var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
 	var games = [
     {
+      name_zh: 'Food Blast: Triple Match',
+      subtitle_zh: 'Tap food! Match 3 to blast! Thousands of fun levels. Download now!',
+      name_en: 'Food Blast: Triple Match',
+      subtitle_en: 'Tap food! Match 3 to blast! Thousands of fun levels. Download now!',
+      icon: 'images/icon_foodblast_triplematch.png',
+      iosUrl: null,
+      gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.game.foodblast.triplematch'
+    },
+    {
       name_zh: 'EchoLit',
       subtitle_zh: 'Turn books, PDFs, or images into natural-sounding speech with AI!',
       name_en: 'EchoLit',
