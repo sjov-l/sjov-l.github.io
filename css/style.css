@@ -1,20 +1,23 @@
-/* Mud Code Studio - 活泼轻松的游戏网站风格 */
+/* Mud Code Studio - 基于 Logo 红黄绿配色 */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 
+/* Logo 主色：红 #e74c3c | 黄 #f1c40f | 绿 #27ae60 */
 :root {
-  --bg-main: #f8f5f0;
+  --logo-red: #e74c3c;
+  --logo-yellow: #f1c40f;
+  --logo-green: #27ae60;
+  --red-soft: rgba(231, 76, 60, 0.12);
+  --yellow-soft: rgba(241, 196, 15, 0.12);
+  --green-soft: rgba(39, 174, 96, 0.12);
+  --bg-main: #fafafa;
   --bg-card: #ffffff;
-  --bg-card-hover: #fffefb;
-  --accent-coral: #ff6b6b;
-  --accent-mint: #4ecdc4;
-  --accent-sunny: #ffe66d;
-  --accent-lavender: #a29bfe;
-  --accent-orange: #fd79a8;
-  --text-primary: #2d3436;
-  --text-secondary: #636e72;
-  --text-muted: #b2bec3;
-  --shadow-soft: 0 4px 20px rgba(45, 52, 54, 0.06);
-  --shadow-hover: 0 12px 40px rgba(255, 107, 107, 0.15);
+  --bg-card-hover: #fffef8;
+  --text-primary: #2c3e50;
+  --text-secondary: #5d6d7e;
+  --text-muted: #95a5a6;
+  --shadow-soft: 0 4px 20px rgba(44, 62, 80, 0.06);
+  --shadow-red: 0 8px 32px rgba(231, 76, 60, 0.2);
+  --shadow-green: 0 8px 32px rgba(39, 174, 96, 0.2);
   --radius-sm: 14px;
   --radius-lg: 24px;
   --radius-xl: 32px;
@@ -31,14 +34,18 @@ html {
 
 body {
   font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(135deg, #f8f5f0 0%, #e8e4f0 40%, #e8f4f0 100%);
+  background: linear-gradient(160deg, 
+    var(--bg-main) 0%, 
+    rgba(241, 196, 15, 0.04) 30%, 
+    rgba(39, 174, 96, 0.05) 70%,
+    rgba(231, 76, 60, 0.03) 100%);
   color: var(--text-primary);
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* 背景装饰 - 柔和气泡/光点 */
+/* 背景 - Logo 三色柔和光晕 */
 body::before {
   content: '';
   position: fixed;
@@ -47,10 +54,10 @@ body::before {
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 15% 20%, rgba(78, 205, 196, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 85% 10%, rgba(255, 230, 109, 0.12) 0%, transparent 35%),
-    radial-gradient(circle at 70% 90%, rgba(255, 107, 107, 0.1) 0%, transparent 40%),
-    radial-gradient(circle at 10% 80%, rgba(162, 155, 254, 0.12) 0%, transparent 35%);
+    radial-gradient(ellipse 60% 40% at 20% 0%, var(--red-soft) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 35% at 50% -10%, var(--yellow-soft) 0%, transparent 45%),
+    radial-gradient(ellipse 55% 45% at 80% 100%, var(--green-soft) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 5% 60%, var(--green-soft) 0%, transparent 40%);
   pointer-events: none;
   z-index: 0;
 }
@@ -74,12 +81,14 @@ body::before {
   width: 110px;
   height: 110px;
   margin-bottom: 1.5rem;
-  filter: drop-shadow(0 8px 24px rgba(255, 107, 107, 0.25));
+  filter: drop-shadow(0 6px 20px rgba(231, 76, 60, 0.2)) 
+          drop-shadow(0 4px 12px rgba(241, 196, 15, 0.15))
+          drop-shadow(0 4px 12px rgba(39, 174, 96, 0.15));
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .hero-logo:hover {
-  transform: scale(1.08) rotate(-3deg);
+  transform: scale(1.1);
 }
 
 .hero-title {
@@ -87,7 +96,8 @@ body::before {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--accent-coral), var(--accent-lavender));
+  background: linear-gradient(90deg, var(--logo-red), var(--logo-yellow), var(--logo-green));
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -102,7 +112,7 @@ body::before {
   opacity: 0.9;
 }
 
-/* 标签页 */
+/* 标签页 - 红黄绿渐变 */
 .tabs-wrap {
   display: flex;
   gap: 0.75rem;
@@ -115,8 +125,8 @@ body::before {
   font-weight: 700;
   padding: 0.75rem 1.5rem;
   color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.8);
-  border: 2px solid transparent;
+  background: var(--bg-card);
+  border: 2px solid rgba(44, 62, 80, 0.08);
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -124,21 +134,22 @@ body::before {
 }
 
 .tab-btn:hover {
-  color: var(--accent-coral);
+  border-color: var(--logo-yellow);
+  color: var(--logo-red);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 107, 107, 0.2);
+  box-shadow: 0 6px 24px var(--yellow-soft);
 }
 
 .tab-btn.is-active {
   color: #fff;
-  background: linear-gradient(135deg, var(--accent-coral), var(--accent-orange));
-  border-color: transparent;
-  transform: scale(1.05);
-  box-shadow: 0 8px 28px rgba(255, 107, 107, 0.35);
+  background: var(--logo-green);
+  border-color: var(--logo-green);
+  box-shadow: 0 4px 20px var(--green-soft);
 }
 
 .tab-btn.is-active:hover {
-  transform: scale(1.08) translateY(-2px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px var(--green-soft);
 }
 
 /* 游戏网格 */
@@ -148,7 +159,6 @@ body::before {
   gap: 1.5rem;
 }
 
-/* 标签页面板 */
 .tab-pane:not(.is-active) {
   display: none !important;
 }
@@ -160,7 +170,7 @@ body::before {
 .game-card {
   position: relative;
   background: var(--bg-card);
-  border: 2px solid rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(44, 62, 80, 0.06);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -171,9 +181,9 @@ body::before {
 
 .game-card:hover {
   background: var(--bg-card-hover);
-  border-color: var(--accent-mint);
+  border-color: rgba(39, 174, 96, 0.4);
   transform: translateY(-8px) scale(1.02);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow-green);
 }
 
 .game-card-link {
@@ -191,7 +201,10 @@ body::before {
   justify-content: center;
   align-items: center;
   min-height: 170px;
-  background: linear-gradient(180deg, rgba(78, 205, 196, 0.08) 0%, rgba(255, 230, 109, 0.05) 100%);
+  background: linear-gradient(180deg, 
+    var(--yellow-soft) 0%, 
+    var(--green-soft) 50%,
+    var(--red-soft) 100%);
 }
 
 .game-card-icon {
@@ -230,7 +243,7 @@ body::before {
 
 .game-card-footer {
   padding: 1rem 1.5rem;
-  border-top: 1px solid rgba(178, 190, 195, 0.2);
+  border-top: 1px solid rgba(44, 62, 80, 0.06);
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
@@ -257,8 +270,20 @@ body::before {
 .site-footer {
   margin-top: 4rem;
   padding: 2rem 1.5rem;
-  border-top: 2px dashed rgba(99, 110, 114, 0.15);
+  position: relative;
   text-align: center;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(200px, 60%);
+  height: 3px;
+  background: linear-gradient(90deg, var(--logo-red), var(--logo-yellow), var(--logo-green));
+  border-radius: var(--radius-pill);
 }
 
 .footer-nav {
@@ -278,11 +303,172 @@ body::before {
 }
 
 .footer-nav a:hover {
-  color: var(--accent-coral);
+  color: var(--logo-red);
   transform: translateY(-1px);
 }
 
 .footer-copyright {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ========== 内容页样式 (Privacy, Delete Account 等) ========== */
+.page-section {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-soft);
+  border: 2px solid rgba(44, 62, 80, 0.06);
+}
+
+.page-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+.page-content h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--logo-green);
+  margin: 1.75rem 0 0.75rem;
+}
+
+.page-content h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 1.25rem 0 0.5rem;
+}
+
+.page-content p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem;
+}
+
+.page-content ul {
+  margin: 0.5rem 0 1rem 1.5rem;
+  padding: 0;
+}
+
+.page-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.page-content a {
+  color: var(--logo-red);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.page-content a:hover {
+  color: var(--logo-green);
+}
+
+.page-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  margin: 0.5rem 0;
+}
+
+/* 兼容原有 Bulma 类名 */
+.section { padding: 3rem 1.5rem 2rem; }
+.container { max-width: 800px; margin: 0 auto; }
+.title.has-text-centered,
+.content h1 { font-family: 'Nunito', sans-serif; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; color: var(--text-primary); text-align: center; margin: 0 0 2rem; }
+.subtitle.is-4,
+.content h2 { font-family: 'Nunito', sans-serif; font-size: 1.125rem; font-weight: 700; color: var(--logo-green); margin: 1.75rem 0 0.75rem; }
+.subtitle.is-5,
+.content h3 { font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 1.25rem 0 0.5rem; }
+.content p { font-size: 0.9375rem; line-height: 1.65; color: var(--text-secondary); margin: 0 0 0.75rem; }
+.content ul { margin: 0.5rem 0 1rem 1.5rem; padding: 0; list-style: disc; }
+.content li { margin-bottom: 0.5rem; line-height: 1.5; color: var(--text-secondary); }
+.content a { color: var(--logo-red); text-decoration: none; font-weight: 600; transition: color 0.2s ease; }
+.content a:hover { color: var(--logo-green); }
+.content img { max-width: 100%; height: auto; border-radius: var(--radius-sm); margin: 0.5rem 0; }
+.has-text-centered { text-align: center; }
+
+/* 内容页 Footer - 兼容 .footer 和 .breadcrumb */
+.footer {
+  margin-top: 4rem;
+  padding: 2rem 1.5rem;
+  position: relative;
+  text-align: center;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(200px, 60%);
+  height: 3px;
+  background: linear-gradient(90deg, var(--logo-red), var(--logo-yellow), var(--logo-green));
+  border-radius: var(--radius-pill);
+}
+
+.breadcrumb {
+  padding: 0;
+  margin: 0 0 1rem;
+  background: none;
+}
+
+.breadcrumb ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb li {
+  margin: 0;
+}
+
+.breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--logo-red);
+}
+
+.breadcrumb .is-active a {
+  color: var(--logo-green);
+  cursor: default;
+}
+
+.footer p {
   font-size: 0.8125rem;
   color: var(--text-muted);
   margin: 0;
