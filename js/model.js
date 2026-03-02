@@ -5,6 +5,15 @@ $(function() {
 	var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
 	var games = [
     {
+      name_zh: "Color Block Crush 2: Roguelite",
+      subtitle_zh: "Roguelite Match-3 Puzzle! Build your strategy in this colorful adventure!",
+      name_en: "Color Block Crush 2: Roguelite",
+      subtitle_en: "Roguelite Match-3 Puzzle! Build your strategy in this colorful adventure!",
+      icon: 'images/icon_color_block_match3_2.png',
+      iosUrl: null,
+      gpUrl: "https://play.google.com/store/apps/details?id=me.sjov.game.block.match3.crush.roguelite"
+    },
+    {
       name_zh: 'Food Blast: Triple Match',
       subtitle_zh: 'Tap food! Match 3 to blast! Thousands of fun levels. Download now!',
       name_en: 'Food Blast: Triple Match',
