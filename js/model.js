@@ -1,10 +1,23 @@
 $(function() {
-	var lang = (navigator.language || navigator.userLanguage || navigator.browserLanguage).toLowerCase();
-	var zh = lang.indexOf('zh') >= 0;
+	function getLngParam() {
+		var m = location.search.match(/[?&]lng=([^&]+)/i);
+		return m ? m[1].toLowerCase() : null;
+	}
+	var lngParam = getLngParam();
+	var zh;
+	if (lngParam === 'en') {
+		zh = false;
+	} else if (lngParam === 'zh') {
+		zh = true;
+	} else {
+		var lang = (navigator.language || navigator.userLanguage || navigator.browserLanguage).toLowerCase();
+		zh = lang.indexOf('zh') >= 0;
+	}
 	var country = zh ? 'cn' : 'us';
 	var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
 	var games = [
     {
+      type: 'game',
       name_zh: "Color Block Crush 2: Roguelite",
       subtitle_zh: "Roguelite Match-3 Puzzle! Build your strategy in this colorful adventure!",
       name_en: "Color Block Crush 2: Roguelite",
@@ -14,6 +27,7 @@ $(function() {
       gpUrl: "https://play.google.com/store/apps/details?id=me.sjov.game.block.match3.crush.roguelite"
     },
     {
+      type: 'game',
       name_zh: 'Food Blast: Triple Match',
       subtitle_zh: 'Tap food! Match 3 to blast! Thousands of fun levels. Download now!',
       name_en: 'Food Blast: Triple Match',
@@ -23,6 +37,7 @@ $(function() {
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.game.foodblast.triplematch'
     },
     {
+      type: 'app',
       name_zh: 'EchoLit',
       subtitle_zh: 'Turn books, PDFs, or images into natural-sounding speech with AI!',
       name_en: 'EchoLit',
@@ -32,6 +47,7 @@ $(function() {
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.app.ai.book.listen.read.echolit'
     },
     {
+      type: 'game',
       name_zh: '逆命牌局',
       subtitle_zh: '用智慧擊敗皇家，贏得榮耀！',
       name_en: 'Rebel Deck',
@@ -41,6 +57,7 @@ $(function() {
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.game.rebeldeck'
     },
     {
+      type: 'game',
       name_zh: '啾咪！飛飛大冒險',
       subtitle_zh: '七日登錄送造型 每日任務賺代幣 連勝競技排行榜',
       name_en: 'Flappy Wings Saga',
@@ -50,6 +67,7 @@ $(function() {
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.game.flappywings'
     },
     {
+      type: 'game',
       name_zh: 'Weapon Master',
       subtitle_zh: 'A roguelike bag-battle game',
       name_en: 'Weapon Master',
@@ -59,6 +77,7 @@ $(function() {
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.game.free.roguelike.bagfight.weaponmaster'
     },
     {
+      type: 'game',
       name_zh: 'Onet-Cute Monster Connect',
       subtitle_zh: 'A different onet puzzle game',
       name_en: 'Onet-Cute Monster Connect',
@@ -68,6 +87,7 @@ $(function() {
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.game.free.onet.match.puzzle'
     },
     {
+      type: 'game',
       name_zh: '方块消消乐',
       subtitle_zh: '一个纯粹的三消游戏',
       name_en: 'Color Block Crush',
@@ -77,6 +97,7 @@ $(function() {
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.block.match3'
     },
     {
+      type: 'game',
       name_zh: 'Poker Match',
       subtitle_zh: 'Become a master. Get the win!',
       name_en: 'Poker Match',
@@ -86,6 +107,7 @@ $(function() {
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.poker.card.match3'
     },
     {
+      type: 'app',
       name_zh: '一念之间',
       subtitle_zh: '我的日记: 灵感就在一念之间',
       name_en: 'Momento',
@@ -95,6 +117,7 @@ $(function() {
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.diary.journal.momento'
     },
     {
+      type: 'app',
       name_zh: '记点儿',
       subtitle_zh: '简单记账，轻松存钱',
       name_en: 'Bookkeeping Er.',
@@ -104,6 +127,7 @@ $(function() {
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.keepaccounts'
     },
     {
+      type: 'app',
       name_zh: '自习助手',
       subtitle_zh: '计划清单与时间管理',
       name_en: 'Self-study Assistant',
@@ -116,36 +140,56 @@ $(function() {
 
 	if (zh) {
 		$('title').html('Mud Code Studio - 免费苹果/安卓手机游戏');
+		$('#hero_tagline').html('好玩免费的游戏与工具');
+		$('#tab_game').html('游戏');
+		$('#tab_app').html('应用');
 		$('#footer_home').html('首页');
-		$('#footer_privacy').html('隐私政策');//.attr('href', "privacy_zh.html");
+		$('#footer_privacy').html('隐私政策');
 		$('#footer_contact').html('联系我们');
+	} else {
+		$('#hero_tagline').html('Free Games & Apps for Everyone');
+		$('#tab_game').html('Games');
+		$('#tab_app').html('Apps');
 	}
 
-	var container = $('#games');
-	var columns;
-	var itemHtml = '<div class="column is-one-quarter is-centered">' +
-						'<div class="card">' +
-							'<a class="card-header-icon" href="{url}" target="_blank">' +
-								'<img class="image is-128x128" src="{game.icon}" alt="{game.name}">' +
-							'</a>' +
-							'<div class="card-content has-text-centered" style="padding: 0;">' +
-								'<span class="title is-6">{game.name}</span><br/>' +
-                '<span class="subtitle is-7">{game.subtitle}</span>' +
-							'</div>' +
-							//'<a class="card-footer-item" href="{game.iosUrl}" target="_blank"><img src="images/download_ios.png"></a>' +
-							'<a class="card-footer-item" href="{game.gpUrl}" target="_blank"><img src="images/download_android.png"></a>' +
-						'</div>' +
-					'</div>';
-	$.each(games, function(i, game) {
-		if (i % 4 == 0) {
-			columns = $('<div class="columns"></div>').appendTo(container);
+	function buildDownloadBtns(game) {
+		var btns = '';
+		if (game.iosUrl) {
+			btns += '<a class="download-btn" href="' + game.iosUrl + '" target="_blank"><img src="images/download_ios.png" alt="App Store"></a>';
 		}
-		$(itemHtml.replace(/{game.name}/g, zh ? game.name_zh : game.name_en)
-                .replace(/{game.subtitle}/g, zh ? game.subtitle_zh : game.subtitle_en)
-				.replace(/{game.icon}/g, game.icon)
-				.replace(/{game.iosUrl}/g, game.iosUrl)
-				.replace(/{game.gpUrl}/g, game.gpUrl)
-				.replace(/{url}/g, isIOS ? game.iosUrl : game.gpUrl)
-			).appendTo(columns);
+		if (game.gpUrl) {
+			btns += '<a class="download-btn" href="' + game.gpUrl + '" target="_blank"><img src="images/download_android.png" alt="Google Play"></a>';
+		}
+		return btns;
+	}
+
+	var name, subtitle, card, target;
+	$.each(games, function(i, game) {
+		name = zh ? game.name_zh : game.name_en;
+		subtitle = zh ? game.subtitle_zh : game.subtitle_en;
+		var url = isIOS ? game.iosUrl : game.gpUrl;
+		if (!url) url = game.gpUrl || game.iosUrl;
+		card = $('<article class="game-card">' +
+			'<a class="game-card-link" href="' + url + '" target="_blank">' +
+				'<div class="game-card-icon-wrap">' +
+					'<img class="game-card-icon" src="' + game.icon + '" alt="' + name + '">' +
+				'</div>' +
+				'<div class="game-card-body">' +
+					'<h2 class="game-card-title">' + name + '</h2>' +
+					'<p class="game-card-subtitle">' + subtitle + '</p>' +
+				'</div>' +
+			'</a>' +
+			'<div class="game-card-footer">' + buildDownloadBtns(game) + '</div>' +
+		'</article>');
+		target = game.type === 'game' ? $('#games') : $('#apps');
+		target.append(card);
+	});
+
+	$('.tab-btn').on('click', function() {
+		var tab = $(this).data('tab');
+		$('.tab-btn').removeClass('is-active');
+		$(this).addClass('is-active');
+		$('.tab-pane').removeClass('is-active');
+		$('.tab-pane[data-tab="' + tab + '"]').addClass('is-active');
 	});
 });
