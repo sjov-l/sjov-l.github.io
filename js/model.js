@@ -1,21 +1,32 @@
 $(function() {
-	function getLngParam() {
-		var m = location.search.match(/[?&]lng=([^&]+)/i);
-		return m ? m[1].toLowerCase() : null;
-	}
-	var lngParam = getLngParam();
-	var zh;
-	if (lngParam === 'en') {
-		zh = false;
-	} else if (lngParam === 'zh') {
-		zh = true;
-	} else {
-		var lang = (navigator.language || navigator.userLanguage || navigator.browserLanguage).toLowerCase();
-		zh = lang.indexOf('zh') >= 0;
-	}
-	var country = zh ? 'cn' : 'us';
-	var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
-	var games = [
+  // function getLngParam() {
+    // var m = location.search.match(/[?&]lng=([^&]+)/i);
+    // return m ? m[1].toLowerCase() : null;
+  // }
+  // var lngParam = getLngParam();
+  // var zh;
+  // if (lngParam === 'en') {
+    // zh = false;
+  // } else if (lngParam === 'zh') {
+    // zh = true;
+  // } else {
+    // var lang = (navigator.language || navigator.userLanguage || navigator.browserLanguage).toLowerCase();
+    // zh = lang.indexOf('zh') >= 0;
+  // }
+  // var country = zh ? 'cn' : 'us';
+  
+  function getSearchParam(key) {
+    // var m = location.search.match(/[?&]tab=([^&]+)/i);
+    // return m ? (Number(m[1]) === 2 ? 2 : 1) : 1;
+    var params = new URLSearchParams(window.location.search);
+    return params.get(key);
+  }
+  
+  var tab = Number(getSearchParam("tab")) === 2 ? 2 : 1;
+  var zh = false;
+  var country = 'us';
+  var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
+  var games = [
     {
       type: 'game',
       name_zh: "Color Block Crush 2: Roguelite",
@@ -138,58 +149,62 @@ $(function() {
     }
   ];
 
-	if (zh) {
-		$('title').html('Mud Code Studio - 免费苹果/安卓手机游戏');
-		$('#hero_tagline').html('好玩免费的游戏与工具');
-		$('#tab_game').html('游戏');
-		$('#tab_app').html('应用');
-		$('#footer_home').html('首页');
-		$('#footer_privacy').html('隐私政策');
-		$('#footer_contact').html('联系我们');
-	} else {
-		$('#hero_tagline').html('Free Games & Apps for Everyone');
-		$('#tab_game').html('Games');
-		$('#tab_app').html('Apps');
-	}
+  if (zh) {
+    $('title').html('Mud Code Studio - 免费苹果/安卓手机游戏');
+    $('#hero_tagline').html('好玩免费的游戏与工具');
+    $('#tab_game').html('游戏');
+    $('#tab_app').html('应用');
+    $('#footer_home').html('首页');
+    $('#footer_privacy').html('隐私政策');
+    $('#footer_contact').html('联系我们');
+  } else {
+    $('#hero_tagline').html('Free Games & Apps for Everyone');
+    $('#tab_game').html('Games');
+    $('#tab_app').html('Apps');
+  }
 
-	function buildDownloadBtns(game) {
-		var btns = '';
-		if (game.iosUrl) {
-			btns += '<a class="download-btn" href="' + game.iosUrl + '" target="_blank"><img src="images/download_ios.png" alt="App Store"></a>';
-		}
-		if (game.gpUrl) {
-			btns += '<a class="download-btn" href="' + game.gpUrl + '" target="_blank"><img src="images/download_android.png" alt="Google Play"></a>';
-		}
-		return btns;
-	}
+  function buildDownloadBtns(game) {
+    var btns = '';
+    if (game.iosUrl) {
+      btns += '<a class="download-btn" href="' + game.iosUrl + '" target="_blank"><img src="images/download_ios.png" alt="App Store"></a>';
+    }
+    if (game.gpUrl) {
+      btns += '<a class="download-btn" href="' + game.gpUrl + '" target="_blank"><img src="images/download_android.png" alt="Google Play"></a>';
+    }
+    return btns;
+  }
 
-	var name, subtitle, card, target;
-	$.each(games, function(i, game) {
-		name = zh ? game.name_zh : game.name_en;
-		subtitle = zh ? game.subtitle_zh : game.subtitle_en;
-		var url = isIOS ? game.iosUrl : game.gpUrl;
-		if (!url) url = game.gpUrl || game.iosUrl;
-		card = $('<article class="game-card">' +
-			'<a class="game-card-link" href="' + url + '" target="_blank">' +
-				'<div class="game-card-icon-wrap">' +
-					'<img class="game-card-icon" src="' + game.icon + '" alt="' + name + '">' +
-				'</div>' +
-				'<div class="game-card-body">' +
-					'<h2 class="game-card-title">' + name + '</h2>' +
-					'<p class="game-card-subtitle">' + subtitle + '</p>' +
-				'</div>' +
-			'</a>' +
-			'<div class="game-card-footer">' + buildDownloadBtns(game) + '</div>' +
-		'</article>');
-		target = game.type === 'game' ? $('#games') : $('#apps');
-		target.append(card);
-	});
+  var name, subtitle, card, target;
+  $.each(games, function(i, game) {
+    name = zh ? game.name_zh : game.name_en;
+    subtitle = zh ? game.subtitle_zh : game.subtitle_en;
+    var url = isIOS ? game.iosUrl : game.gpUrl;
+    if (!url) url = game.gpUrl || game.iosUrl;
+    card = $('<article class="game-card">' +
+      '<a class="game-card-link" href="' + url + '" target="_blank">' +
+        '<div class="game-card-icon-wrap">' +
+          '<img class="game-card-icon" src="' + game.icon + '" alt="' + name + '">' +
+        '</div>' +
+        '<div class="game-card-body">' +
+          '<h2 class="game-card-title">' + name + '</h2>' +
+          '<p class="game-card-subtitle">' + subtitle + '</p>' +
+        '</div>' +
+      '</a>' +
+      '<div class="game-card-footer">' + buildDownloadBtns(game) + '</div>' +
+    '</article>');
+    target = game.type === 'game' ? $('#games') : $('#apps');
+    target.append(card);
+  });
 
-	$('.tab-btn').on('click', function() {
-		var tab = $(this).data('tab');
-		$('.tab-btn').removeClass('is-active');
-		$(this).addClass('is-active');
-		$('.tab-pane').removeClass('is-active');
-		$('.tab-pane[data-tab="' + tab + '"]').addClass('is-active');
-	});
+  $('.tab-btn').on('click', function() {
+    var tab = $(this).data('tab');
+    $('.tab-btn').removeClass('is-active');
+    $(this).addClass('is-active');
+    $('.tab-pane').removeClass('is-active');
+    $('.tab-pane[data-tab="' + tab + '"]').addClass('is-active');
+  });
+  
+  $(document).ready(function() {
+    $(tab === 1 ? '#tab_game' : '#tab_app').trigger('click');
+  });
 });
