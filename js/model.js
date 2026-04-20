@@ -22,11 +22,21 @@ $(function() {
     return params.get(key);
   }
   
-  var tab = Number(getSearchParam("tab")) === 2 ? 2 : 1;
+  var tab = Number(getSearchParam("tab")) === 1 ? 1 : 2;
   var zh = false;
   var country = 'us';
   var isIOS = false;//navigator.userAgent.indexOf('Mac') >= 0 || navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0;
-  var games = [
+  var apps = [
+    {
+      type: 'app',
+      name_zh: "InkSum: AI Handwriting OCR",
+      subtitle_zh: "Convert handwritten notes to text and smart AI summaries.",
+      name_en: "InkSum: AI Handwriting OCR",
+      subtitle_en: "Convert handwritten notes to text and smart AI summaries.",
+      icon: 'images/icon_ink-sum.png',
+      iosUrl: null,
+      gpUrl: "https://play.google.com/store/apps/details?id=me.sjov.ink_sum"
+    },
     {
       type: 'game',
       name_zh: "Color Block Crush 2: Roguelite",
@@ -175,24 +185,24 @@ $(function() {
   }
 
   var name, subtitle, card, target;
-  $.each(games, function(i, game) {
-    name = zh ? game.name_zh : game.name_en;
-    subtitle = zh ? game.subtitle_zh : game.subtitle_en;
-    var url = isIOS ? game.iosUrl : game.gpUrl;
-    if (!url) url = game.gpUrl || game.iosUrl;
+  $.each(apps, function(i, app) {
+    name = zh ? app.name_zh : app.name_en;
+    subtitle = zh ? app.subtitle_zh : app.subtitle_en;
+    var url = isIOS ? app.iosUrl : app.gpUrl;
+    if (!url) url = app.gpUrl || app.iosUrl;
     card = $('<article class="game-card">' +
       '<a class="game-card-link" href="' + url + '" target="_blank">' +
         '<div class="game-card-icon-wrap">' +
-          '<img class="game-card-icon" src="' + game.icon + '" alt="' + name + '">' +
+          '<img class="game-card-icon" src="' + app.icon + '" alt="' + name + '">' +
         '</div>' +
         '<div class="game-card-body">' +
           '<h2 class="game-card-title">' + name + '</h2>' +
           '<p class="game-card-subtitle">' + subtitle + '</p>' +
         '</div>' +
       '</a>' +
-      '<div class="game-card-footer">' + buildDownloadBtns(game) + '</div>' +
+      '<div class="game-card-footer">' + buildDownloadBtns(app) + '</div>' +
     '</article>');
-    target = game.type === 'game' ? $('#games') : $('#apps');
+    target = app.type === 'game' ? $('#games') : $('#apps');
     target.append(card);
   });
 
