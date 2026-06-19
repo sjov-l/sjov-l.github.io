@@ -160,7 +160,7 @@ $(function() {
   ];
 
   if (zh) {
-    $('title').html('Mud Code Studio - 免费苹果/安卓手机游戏');
+    $('title').html('OcoLee - 免费苹果/安卓手机游戏');
     $('#hero_tagline').html('好玩免费的游戏与工具');
     $('#tab_game').html('游戏');
     $('#tab_app').html('应用');
