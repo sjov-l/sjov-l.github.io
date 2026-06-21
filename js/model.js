@@ -29,6 +29,16 @@ $(function() {
   var apps = [
     {
       type: 'app',
+      name_zh: "SongGift: AI Custom Song Maker",
+      subtitle_zh: "Create custom AI songs & personalized music gifts for any occasion instantly.",
+      name_en: "SongGift: AI Custom Song Maker",
+      subtitle_en: "Create custom AI songs & personalized music gifts for any occasion instantly.",
+      icon: 'images/icon_song-gift.png',
+      iosUrl: null,
+      gpUrl: "https://play.google.com/store/apps/details?id=me.sjov.song_gift"
+    },
+    {
+      type: 'app',
       name_zh: "InkSum: AI Handwriting OCR",
       subtitle_zh: "Convert handwritten notes to text and smart AI summaries.",
       name_en: "InkSum: AI Handwriting OCR",
