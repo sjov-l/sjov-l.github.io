@@ -39,7 +39,7 @@
                 </p>
                 <ul>
                     <li>The <strong>name of the app</strong> (as it appears on Google Play)</li>
-                    <li>Your <strong>in-game username</strong> or <strong>user ID</strong> (if available)</li>
+                    <li>Your <strong>username</strong> or <strong>user ID</strong> (if available)</li>
                     <li>The <strong>email address</strong> linked to the account (if applicable)</li>
                 </ul>
                 <p class="has-text-centered" style="margin: 1.5rem 0;">
@@ -56,7 +56,7 @@
                 <h2 class="subtitle is-4">What Data Will Be Deleted</h2>
                 <ul>
                     <li>Your account profile and credentials</li>
-                    <li>Game progress, scores, achievements, and saved data</li>
+                    <li>Your usage data, progress, preferences, and saved content</li>
                     <li>Purchase history and transaction records</li>
                     <li>Any personal information you provided (nickname, email, etc.)</li>
                 </ul>
@@ -84,9 +84,9 @@
                 <p>
                     Developer: <strong>OcoLee</strong>
                 </p>
-                <p id="app_ref" style="margin-top: 1.5rem; padding: 1rem; background: var(--yellow-soft); border-radius: var(--radius-sm); font-size: 0.875rem; color: var(--text-muted);">
-                    This deletion page was accessed from the Google Play listing of an app published by OcoLee.
-                </p>
+                <!-- <p id="app_ref" style="margin-top: 1.5rem; padding: 1rem; background: var(--yellow-soft); border-radius: var(--radius-sm); font-size: 0.875rem; color: var(--text-muted);"> -->
+                    <!-- This deletion page was accessed from the Google Play listing of an app published by OcoLee. -->
+                <!-- </p> -->
             </div>
         </div>
     </section>
@@ -96,7 +96,7 @@
             <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../privacy/index.html">Privacy Policy</a></li>
-                <li class="is-active"><a href="common.html">Account Deletion</a></li>
+                <li class="is-active"><a href="index.html">Account Deletion</a></li>
                 <li><a href="mailto:ocoao.li@gmail.com">Contact Us</a></li>
             </ul>
         </nav>
@@ -134,9 +134,9 @@
                 '</strong>, an app/game published by <strong>OcoLee</strong> on Google Play.';
 
             // 底部应用引用
-            document.getElementById('app_ref').innerHTML =
-                'This deletion page is linked from the Google Play listing of <strong>' +
-                appName + '</strong>, published by <strong>OcoLee</strong>.';
+            //document.getElementById('app_ref').innerHTML =
+            //    'This deletion page is linked from the Google Play listing of <strong>' +
+            //    appName + '</strong>, published by <strong>OcoLee</strong>.';
         }
         // 无 app 参数时，保留默认的泛用文本（已提及 OcoLee）
     })();
