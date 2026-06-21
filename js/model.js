@@ -169,19 +169,19 @@ $(function() {
     }
   ];
 
-  if (zh) {
-    $('title').html('OcoLee - 免费苹果/安卓手机游戏');
-    $('#hero_tagline').html('好玩免费的游戏与工具');
-    $('#tab_game').html('游戏');
-    $('#tab_app').html('应用');
-    $('#footer_home').html('首页');
-    $('#footer_privacy').html('隐私政策');
-    $('#footer_contact').html('联系我们');
-  } else {
-    $('#hero_tagline').html('Free Games & Apps for Everyone');
-    $('#tab_game').html('Games');
-    $('#tab_app').html('Apps');
-  }
+  // if (zh) {
+    // $('title').html('OcoLee - 免费苹果/安卓手机游戏');
+    // $('#hero_tagline').html('好玩免费的游戏与工具');
+    // $('#tab_game').html('游戏');
+    // $('#tab_app').html('应用');
+    // $('#footer_home').html('首页');
+    // $('#footer_privacy').html('隐私政策');
+    // $('#footer_contact').html('联系我们');
+  // } else {
+    // $('#hero_tagline').html('Free Games & Apps for Everyone');
+    // $('#tab_game').html('Games');
+    // $('#tab_app').html('Apps');
+  // }
 
   function buildDownloadBtns(game) {
     var btns = '';
