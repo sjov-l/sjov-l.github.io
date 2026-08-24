@@ -29,6 +29,16 @@ $(function() {
   var apps = [
     {
       type: 'app',
+      name_zh: 'Tripwise: Trip Expense Tracker',
+      subtitle_zh: 'Track travel spending, manage budgets, convert currencies and get smart insights',
+      name_en: 'Tripwise: Trip Expense Tracker',
+      subtitle_en: 'Track travel spending, manage budgets, convert currencies and get smart insights',
+      icon: 'images/icon_tripwise.png',
+      //iosUrl: 'https://itunes.apple.com/' + country + '/app/id1542739293?mt=8',
+      gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.keepaccounts'
+    },
+    {
+      type: 'app',
       name_zh: "SongGift: AI Custom Song Maker",
       subtitle_zh: "Create custom AI songs & personalized music gifts for any occasion instantly.",
       name_en: "SongGift: AI Custom Song Maker",
@@ -146,16 +156,6 @@ $(function() {
       icon: 'images/icon_momento.png',
       iosUrl: null,
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.diary.journal.momento'
-    },
-    {
-      type: 'app',
-      name_zh: '记点儿',
-      subtitle_zh: '简单记账，轻松存钱',
-      name_en: 'Bookkeeping Er.',
-      subtitle_en: 'Save money easily',
-      icon: 'images/icon_keepaccounts.png',
-      iosUrl: 'https://itunes.apple.com/' + country + '/app/id1542739293?mt=8',
-      gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.keepaccounts'
     },
     {
       type: 'app',
