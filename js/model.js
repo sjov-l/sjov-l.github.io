@@ -29,6 +29,16 @@ $(function() {
   var apps = [
     {
       type: 'app',
+      name_zh: 'SkinTrack: Skincare Diary',
+      subtitle_zh: 'Track products and daily skin changes. See what actually works for you.',
+      name_en: 'SkinTrack: Skincare Diary',
+      subtitle_en: 'Track products and daily skin changes. See what actually works for you.',
+      icon: 'images/icon_skintrack.png',
+      //iosUrl: 'https://itunes.apple.com/' + country + '/app/id1542739293?mt=8',
+      gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.skin_track'
+    },
+    {
+      type: 'app',
       name_zh: 'Tripwise: Trip Expense Tracker',
       subtitle_zh: 'Track travel spending, manage budgets, convert currencies and get smart insights',
       name_en: 'Tripwise: Trip Expense Tracker',
