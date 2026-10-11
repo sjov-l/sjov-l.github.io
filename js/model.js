@@ -169,11 +169,11 @@ $(function() {
     },
     {
       type: 'app',
-      name_zh: 'Solo Focus: Todo & Task Timer',
-      subtitle_zh: 'A minimalist todo list and Pomodoro timer designed for deep work.',
-      name_en: 'Solo Focus: Todo & Task Timer',
-      subtitle_en: 'A minimalist todo list and Pomodoro timer designed for deep work.',
-      icon: 'images/icon_solo-focus.png',
+      name_zh: 'Focuswood: Cozy Focus Timer',
+      subtitle_zh: 'A cozy focus timer — stay focused, and a quiet wood fills with animals.',
+      name_en: 'Focuswood: Cozy Focus Timer',
+      subtitle_en: 'A cozy focus timer — stay focused, and a quiet wood fills with animals.',
+      icon: 'images/icon_focuswood.png',
       iosUrl: 'https://itunes.apple.com/' + country + '/app/id1544247778?mt=8',
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.study_room'
     }
