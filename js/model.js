@@ -159,10 +159,10 @@ $(function() {
     },
     {
       type: 'app',
-      name_zh: '一念之间',
-      subtitle_zh: '我的日记: 灵感就在一念之间',
-      name_en: 'Momento',
-      subtitle_en: 'A diary app: The inspiration arises in a fleeting moment.',
+      name_zh: 'Momento: Mood Tracker & Diary',
+      subtitle_zh: 'Track your mood, keep a daily journal, and grow with a little companion.',
+      name_en: 'Momento: Mood Tracker & Diary',
+      subtitle_en: 'Track your mood, keep a daily journal, and grow with a little companion.',
       icon: 'images/icon_momento.png',
       iosUrl: null,
       gpUrl: 'https://play.google.com/store/apps/details?id=me.sjov.diary.journal.momento'
