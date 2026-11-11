@@ -50,9 +50,9 @@ $(function() {
     {
       type: 'app',
       name_zh: "SongGift: AI Custom Song Maker",
-      subtitle_zh: "Create custom AI songs & personalized music gifts for any occasion instantly.",
+      subtitle_zh: "AI song maker: turn memories into personalized songs and video gifts.",
       name_en: "SongGift: AI Custom Song Maker",
-      subtitle_en: "Create custom AI songs & personalized music gifts for any occasion instantly.",
+      subtitle_en: "AI song maker: turn memories into personalized songs and video gifts.",
       icon: 'images/icon_song-gift.png',
       iosUrl: null,
       gpUrl: "https://play.google.com/store/apps/details?id=me.sjov.song_gift"
